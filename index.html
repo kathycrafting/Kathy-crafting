@@ -452,7 +452,7 @@
   <div class="header-row">
     <div>
       <h1>Kathy's Crafting Inventory<span class="save-dot" id="saveDot"></span></h1>
-      <p>Photos auto-saved · Tap any item to take or view a photo</p>
+      <p>Photos auto-saved Â· Tap any item to take or view a photo</p>
     </div>
     <button class="export-btn" onclick="exportZip()">? Export ZIP</button>
   </div>
@@ -460,7 +460,7 @@
 <div class="toast" id="toast"></div>
 
 <div class="search-bar">
-  <input type="text" id="searchInput" placeholder="Search by type, colour, identifier…" />
+  <input type="text" id="searchInput" placeholder="Search by type, colour, identifierÂ…" />
 </div>
 
 <div class="list-count" id="listCount"></div>
@@ -546,7 +546,7 @@ function saveToStorage() {
     flashSaveDot();
   } catch(e) {
     if (e.name === 'QuotaExceededError') {
-      showToast('?? Storage full — export your ZIP to free space');
+      showToast('?? Storage full Â— export your ZIP to free space');
     }
   }
 }
@@ -572,7 +572,7 @@ async function exportZip() {
   const photoIds = Object.keys(photos);
   if (!photoIds.length) { showToast('No photos to export yet'); return; }
 
-  showToast('? Building ZIP…', 5000);
+  showToast('? Building ZIPÂ…', 5000);
   const zip = new JSZip();
   const folder = zip.folder('KathyCrafting_Photos');
 
@@ -619,7 +619,7 @@ function getMeta(item) {
   if (item.Theme) parts.push(item.Theme);
   if (item["Paper Pattern"]) parts.push(item["Paper Pattern"]);
   if (!parts.length) { parts.push(`Cabinet ${item.Cabinet}, Shelf ${item.Shelf}`); }
-  return parts.join(" · ");
+  return parts.join(" Â· ");
 }
 
 function renderList(filter = "") {
@@ -654,10 +654,10 @@ function renderList(filter = "") {
         </div>
         <div class="item-info">
           <div class="item-id">${item.Identifier}</div>
-          <div class="item-type">${item["Object Type"] || "—"}</div>
+          <div class="item-type">${item["Object Type"] || "Â—"}</div>
           <div class="item-meta">${getMeta(item)}</div>
         </div>
-        <div class="item-arrow">›</div>
+        <div class="item-arrow">Â›</div>
       </div>
     </div>`;
   }).join("");
